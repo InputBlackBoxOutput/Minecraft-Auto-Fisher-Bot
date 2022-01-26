@@ -1,6 +1,8 @@
 # Minecraft Auto Fisher Bot 🐟🐠🐡🦈🎣
 #### An over-engineered bot using computer vision and deep learning for automatic fishing in Minecraft
 
+![Demo GIF](demo.gif)
+
 ## How to use?
 1. Start Minecraft and align the window to your left split screen 
 1. Enter a world, finding a place to fish and stand at the edge of the water body.
