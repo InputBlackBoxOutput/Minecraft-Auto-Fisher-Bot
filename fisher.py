@@ -32,12 +32,15 @@ tf.get_logger().setLevel('ERROR')
 
 # Run prediction on the image passed as input 
 def run_predict(img):
+    # now = time.time()
+
     img = np.array(img) / 255
     img = cv2.resize(img, (160, 90), interpolation=cv2.INTER_CUBIC)
     img = img[np.newaxis, ...]
     model = keras.models.load_model('model.h5')
     prediction = model.predict(img)
 
+    # print(time.time() - now)
     return 1 if prediction > 0.5 else 0
 
 # Reel in the fish and then throw the bait
