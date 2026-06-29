@@ -3,3 +3,4 @@ Pillow
 PyAutoGUI
 PyQt6
 tensorflow-cpu
+pyinstaller

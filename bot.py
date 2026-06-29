@@ -44,11 +44,14 @@ class Bot:
         self.timestamp: float = 0.0
 
         model_path = self.config.model_path
-        
-        # Use the absolute path to the model if running from the pyinstaller executable
-        if not os.path.isabs(model_path) and getattr(sys, '_MEIPASS', None) is None:
-            model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), model_path)
-        
+
+        # Use bundle directory path if run in a pyinstaller executable
+        if not os.path.isabs(model_path) and getattr(sys, "_MEIPASS", None):
+            model_path = os.path.join(getattr(sys, "_MEIPASS", None), model_path)
+
+        if not os.path.exists(model_path):
+            raise FileNotFoundError(f"Model file not found: {model_path}")
+
         self.model = keras.models.load_model(model_path, compile=False)
 
     def clamp_offset(

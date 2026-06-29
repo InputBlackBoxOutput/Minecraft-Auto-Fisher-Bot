@@ -29,3 +29,12 @@ pip install -r requirements.txt
 
 python train.py
 ```
+```
+# Build pyinstaller executable
+cd pyinstaller
+
+pyinstaller linux.spec
+pyinstaller macos.spec
+pyinstaller windows.spec
+
+```
