@@ -32,10 +32,11 @@ jobs:
         shell: pwsh
         run: |
           cd pyinstaller
-          pyinstaller windows.spec
+          python -m PyInstaller windows.spec --distpath dist --workpath build
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: windows-build
-          path: dist/**
+          path: pyinstaller/dist/**
+          if-no-files-found: error

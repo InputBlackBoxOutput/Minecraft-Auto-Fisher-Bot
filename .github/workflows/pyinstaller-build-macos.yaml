@@ -19,7 +19,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: "3.10"
 
       - name: Install Dependencies
         run: |
@@ -31,10 +31,11 @@ jobs:
         shell: bash
         run: |
           cd pyinstaller
-          pyinstaller macos.spec
+          python -m PyInstaller macos.spec --distpath dist --workpath build
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: macos-build
-          path: dist/**
+          path: pyinstaller/dist/**
+          if-no-files-found: error
