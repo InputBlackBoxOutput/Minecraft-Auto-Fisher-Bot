@@ -2,5 +2,5 @@ numpy
 Pillow
 PyAutoGUI
 PyQt6
-tensorflow-cpu
+tensorflow
 pyinstaller
