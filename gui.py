@@ -69,7 +69,7 @@ class GUI(QMainWindow):
         layout.setContentsMargins(5, 0, 5, 0)
 
         self.status_label = QLabel("Idle")
-        self.catch_label = QLabel("Catches:    0")
+        self.catch_label = QLabel("Catch attempts:    0")
 
         layout.addWidget(QLabel("Status:"))
         layout.addWidget(self.status_label)
@@ -238,7 +238,7 @@ class GUI(QMainWindow):
             poll_interval=float(self.poll_spin.value()),
         )
         if self.bot.start():
-            self.catch_label.setText("Catches:    0")
+            self.catch_label.setText("Catch attempts:    0")
             self.start_btn.setEnabled(False)
             self.stop_btn.setEnabled(True)
 
@@ -248,7 +248,7 @@ class GUI(QMainWindow):
         self.stop_btn.setEnabled(False)
 
     def update_catch_count(self, count: int):
-        self.catch_label.setText(f"Catches: {count:>4}")
+        self.catch_label.setText(f"Catch attempts: {count:>4}")
 
     def update_status(self, status: str):
         self.status_label.setText(status)

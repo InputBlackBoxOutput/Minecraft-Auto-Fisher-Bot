@@ -131,7 +131,7 @@ class Bot:
                 if previous_frame is None or np.array_equal(np.asarray(previous_frame), np.asarray(capture)):
                     previous_frame = capture.copy()
                     print("Prediction skipped to reduce CPU usage")
-                    self.on_status("No movement detected")
+                    self.on_status("No bobber movement detected")
                 else:
                     if(self.predict(capture)):
                         self.catch_count += 1
@@ -147,6 +147,8 @@ class Bot:
                         pyautogui.mouseUp(button="right")
 
                         time.sleep(self.config.catch_cooldown)
+                    else:
+                        self.on_status("Observe the bobber for movement")
 
                 time.sleep(self.config.poll_interval)
 
